@@ -1,0 +1,5 @@
+# inserir um registro
+curl -v -X POST -H "Content-type: application/xml; charset=utf-8" -d "<produto><id>1</id><descricao>Abacaxi</descricao><valor>5</valor></produto>" http://localhost:8080/produtos
+
+# consulta um registro
+curl -v http://localhost:8080/produtos
