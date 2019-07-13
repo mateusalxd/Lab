@@ -1,0 +1,8 @@
+# recria servidor tomcat
+./recriar.sh tomcat/serv-tomcat.Dockerfile serv-tomcat -e
+
+# inserir um registro
+curl -v -X POST -H "Content-type: application/xml; charset=utf-8" -d "<produto><id>1</id><descricao>Abacaxi</descricao><valor>5</valor></produto>" http://[endereço do servidor]/produtos
+
+# consulta um registro
+curl -v http://[endereço do servidor]/produtos

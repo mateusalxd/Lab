@@ -1,5 +1,12 @@
-REPOSITORY="mateusalxd/serv-mysql"
-CONTAINER_NAME="serv-mysql"
+# Parâmetros:
+# 1 - arquivo dockerfile
+# 2 - nome do container
+# 3 - se informado -e executa o container após criação
+
+DOCKERFILE=$1
+CONTAINER_NAME="$2"
+AUTOEXEC="$3"
+REPOSITORY="mateusalxd/$CONTAINER_NAME"
 
 echo -e "--> Parando containers\n"
 CONTAINER_ID=$(docker ps -q -f "name=$CONTAINER_NAME")
@@ -14,6 +21,6 @@ IMAGE_ID=$(docker images -q $REPOSITORY)
 [ ! -z $IMAGE_ID ] && docker rmi $IMAGE_ID || echo "Nenhuma imagem para ser removida"
 
 echo -e "\n--> Recriando imagens\n"
-docker build -f serv-mysql.Dockerfile -t $REPOSITORY .
+docker build -f $DOCKERFILE -t $REPOSITORY $(dirname $DOCKERFILE)
 
-[ $? -eq 0 -a "$1" == "-e" ] && docker run -d -P --name $CONTAINER_NAME $REPOSITORY
+[ $? -eq 0 -a $AUTOEXEC == "-e" ] && docker run -d -P --name $CONTAINER_NAME $REPOSITORY
