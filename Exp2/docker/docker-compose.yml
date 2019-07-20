@@ -1,0 +1,27 @@
+version: '3'
+services: 
+  api:
+    build:
+      dockerfile: ./serv-jetty.Dockerfile
+      context: .
+    image: mateusalxd/serv-jetty
+    container_name: serv-jetty
+    ports: 
+      - "80:8080"
+    networks: 
+      - rede-teste
+    depends_on: 
+      - "db"
+  db:
+    build:
+      dockerfile: ./serv-mysql.Dockerfile
+      context: .
+    image: mateusalxd/serv-mysql
+    container_name: serv-mysql
+    ports: 
+      - "3306:3306"
+    networks: 
+      - rede-teste
+networks: 
+  rede-teste:
+    driver: bridge
