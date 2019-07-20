@@ -39,13 +39,16 @@ public class ProdutoResource {
 		try {
 			Produto produtoNovo = new ProdutoDAO().inserir(produto);
 			if (produtoNovo.getId() == -1) {
+				// TODO verificar código ideal a ser retornado
 				return Response.status(406).build();
 			} else {
-				URI uri = URI.create("/produtos/" + produto.getId());
+				// TODO verificar uma maneira de retornar o URI sem deixar fixo
+				URI uri = URI.create("/exp2/rest/produtos/" + produto.getId());
 				return Response.created(uri).build();
 			}
 		} catch (IOException | SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
+			// TODO verificar código ideal a ser retornado
 			return Response.status(406).build();
 		}
 	}
