@@ -31,7 +31,7 @@ public class SwaggerConfig {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
 				.apis(RequestHandlerSelectors.basePackage("br.com.mateusalxd.unilab"))
-				.paths(PathSelectors.ant("/"))
+				.paths(PathSelectors.ant("/**"))
 				.build()
 				.apiInfo(apiInfo);
 	}
