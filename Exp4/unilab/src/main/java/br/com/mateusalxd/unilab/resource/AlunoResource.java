@@ -52,7 +52,7 @@ public class AlunoResource {
 			return ResponseEntity.ok(new AlunoDTO(optional.get()));
 		}
 		
-		return ResponseEntity.badRequest().build();
+		return ResponseEntity.notFound().build();
 	}
 
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -76,7 +76,7 @@ public class AlunoResource {
 			return ResponseEntity.ok().build();
 		}
 
-		return ResponseEntity.badRequest().build();
+		return ResponseEntity.notFound().build();
 	}
 
 	@PutMapping(path = "{matricula}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -90,7 +90,7 @@ public class AlunoResource {
 			return ResponseEntity.ok(new AlunoDTO(aluno));
 		}
 
-		return ResponseEntity.badRequest().build();
+		return ResponseEntity.notFound().build();
 	}
 
 }
