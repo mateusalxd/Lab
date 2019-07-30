@@ -15,9 +15,11 @@ public class Curso {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	@Column(length = 200, unique = true, nullable = false)
 	private String nome;
-	@ManyToMany(mappedBy = "cursos")
+
+	@ManyToMany
 	private List<Disciplina> disciplinas;
 
 	public Long getId() {

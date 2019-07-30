@@ -10,8 +10,10 @@ public class Funcionario extends Pessoa {
 
 	@Column(length = 50, unique = true, nullable = false)
 	private String codigo;
+
 	@Column(length = 100, nullable = false)
 	private String cargo;
+
 	@Column(precision = 8, scale = 2, nullable = false)
 	private BigDecimal salario;
 

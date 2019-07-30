@@ -15,15 +15,20 @@ public class Disciplina {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(length = 200, nullable = false)
+
+	@Column(length = 200, unique = true, nullable = false)
 	private String nome;
+
 	@Column(nullable = false)
 	private Short periodo;
+
 	@Column(nullable = false)
 	private Short cargaHoraria;
-	@ManyToMany
+
+	@ManyToMany(mappedBy = "disciplinas")
 	private List<Curso> cursos;
-	@ManyToMany
+
+	@ManyToMany(mappedBy = "disciplinas")
 	private List<Professor> professores;
 
 	public Long getId() {

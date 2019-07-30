@@ -16,10 +16,12 @@ public class Pessoa {
 
 	@Column(length = 200, nullable = false)
 	private String nome;
+
 	@Column(nullable = false)
 	@DateTimeFormat(iso = ISO.DATE, pattern = "dd/MM/yyyy")
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataNascimento;
+
 	@OneToOne(optional = true)
 	private Usuario usuario;
 

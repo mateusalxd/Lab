@@ -23,17 +23,24 @@ public class Usuario implements UserDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	@Column(length = 200, unique = true, nullable = false)
 	private String nome;
+
 	@Column(length = 1000, nullable = false)
 	private String senha;
+
 	@Column(columnDefinition = "BOOLEAN", nullable = false)
 	private Boolean ativo;
+
 	@Column(columnDefinition = "BOOLEAN", nullable = false)
 	private Boolean bloqueado;
+
 	@Column(nullable = false)
 	private LocalDateTime dataCadastro;
+
 	private LocalDateTime dataInativacao;
+
 	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Perfil> perfis;
 

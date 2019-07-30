@@ -12,10 +12,13 @@ public class Aluno extends Pessoa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	@Column(length = 50, unique = true, nullable = false)
 	private String matricula;
+
 	@Column(length = 500, nullable = false)
 	private String endereco;
+
 	@Column(length = 20, nullable = true)
 	private String telefone;
 

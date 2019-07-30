@@ -14,7 +14,8 @@ public class Professor extends Funcionario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@ManyToMany(mappedBy = "professores")
+
+	@ManyToMany
 	private List<Disciplina> disciplinas;
 
 	public Long getId() {
