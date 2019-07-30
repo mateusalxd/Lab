@@ -8,7 +8,7 @@ import br.com.mateusalxd.unilab.model.Perfil;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel(description = "Formulário utilizado para cadastro de um novo Perfil")
+@ApiModel(description = "Formulário utilizado para cadastro/atualização de um novo Perfil")
 public class PerfilForm {
 
 	@NotNull
@@ -23,6 +23,12 @@ public class PerfilForm {
 
 	public final void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public Perfil atualizar(Perfil perfil) {
+		perfil.setNome(this.nome);
+
+		return perfil;
 	}
 
 	public Perfil converter() {

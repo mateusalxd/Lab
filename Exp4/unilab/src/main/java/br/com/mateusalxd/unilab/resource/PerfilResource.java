@@ -23,7 +23,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import br.com.mateusalxd.unilab.model.Perfil;
 import br.com.mateusalxd.unilab.repository.PerfilRepository;
 import br.com.mateusalxd.unilab.resource.dto.PerfilDTO;
-import br.com.mateusalxd.unilab.resource.form.AtualizacaoPerfilForm;
 import br.com.mateusalxd.unilab.resource.form.PerfilForm;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -85,7 +84,7 @@ public class PerfilResource {
 	@Transactional
 	@ApiOperation(value = "Atualiza um Perfil")
 	public ResponseEntity<PerfilDTO> atualizar(@PathVariable @ApiParam(value = "Identificação do perfil") Long id,
-			@RequestBody @Valid @ApiParam(value = "Dados do perfil") AtualizacaoPerfilForm formulario) {
+			@RequestBody @Valid @ApiParam(value = "Dados do perfil") PerfilForm formulario) {
 		Optional<Perfil> optional = perfilRepository.findById(id);
 		if (optional.isPresent()) {
 			Perfil perfil = formulario.atualizar(optional.get());
