@@ -10,3 +10,14 @@ insert into perfil (nome) values('perfis_delete');
 insert into perfil (nome) values('perfis_get');
 insert into perfil (nome) values('perfis_post');
 insert into perfil (nome) values('perfis_put');
+
+insert into curso (nome) values('Ciência da Computação');
+insert into curso (nome) values('Direito');
+
+insert into professor (data_nascimento, nome, cargo, codigo, salario) values ('1980-01-03', 'Professor 1', 'Cargo 1', 'C0000001', 1000.00);
+insert into professor (data_nascimento, nome, cargo, codigo, salario) values ('1990-07-25', 'Professor 2', 'Cargo 2', 'C0000002', 1999.99);
+insert into professor (data_nascimento, nome, cargo, codigo, salario) values ('2000-01-03', 'Professor 3', 'Cargo 3', 'C0000003', 1000.00);
+
+insert into disciplina (nome) values('Calculo I');
+insert into disciplina (nome) values('Calculo II');
+insert into disciplina (nome) values('Ética');
