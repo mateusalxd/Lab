@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -58,7 +59,7 @@ public class AlunoResource {
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@Transactional
 	@ApiOperation(value = "Cadastra um novo Aluno", notes = "A API devolve o local do recurso criado no cabeçalho de resposta")
-	public ResponseEntity<AlunoDTO> cadastrar(@RequestBody @ApiParam(value = "Dados do aluno") AlunoForm formulario,
+	public ResponseEntity<AlunoDTO> cadastrar(@RequestBody @Valid @ApiParam(value = "Dados do aluno") AlunoForm formulario,
 			@ApiParam(hidden = true) UriComponentsBuilder uriComponentsBuilder) {
 		Aluno aluno = alunoRepository.save(formulario.converter());
 
@@ -83,7 +84,7 @@ public class AlunoResource {
 	@Transactional
 	@ApiOperation(value = "Atualiza um Aluno")
 	public ResponseEntity<AlunoDTO> atualizar(@PathVariable @ApiParam(value = "Matrícula do aluno") String matricula,
-			@RequestBody @ApiParam(value = "Dados do aluno") AtualizacaoAlunoForm formulario) {
+			@RequestBody @Valid @ApiParam(value = "Dados do aluno") AtualizacaoAlunoForm formulario) {
 		Optional<Aluno> optional = alunoRepository.findByMatricula(matricula);
 		if (optional.isPresent()) {
 			Aluno aluno = formulario.atualizar(optional.get());
