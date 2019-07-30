@@ -20,15 +20,18 @@ public class AtualizacaoAlunoForm {
 	@Size(max = 200)
 	@ApiModelProperty(value = "Nome do aluno", example = "Mateus")
 	private String nome;
+
 	@NotNull
 	@ApiModelProperty(value = "Data de nascimento no formato dd/MM/yyyy", example = "01/12/1980")
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataNascimento;
+
 	@NotNull
 	@NotEmpty
 	@Size(max = 500)
 	@ApiModelProperty(value = "Endereço completo do aluno", example = "Rua 1, Centro, São Paulo, SP, 99999-999")
 	private String endereco;
+
 	@Size(max = 20)
 	@ApiModelProperty(value = "Telefone do aluno", example = "19-99999-9999")
 	private String telefone;

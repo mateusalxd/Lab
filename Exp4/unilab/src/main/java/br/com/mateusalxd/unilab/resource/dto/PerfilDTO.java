@@ -12,6 +12,7 @@ public class PerfilDTO {
 
 	@ApiModelProperty(value = "Identificação do perfil", example = "1")
 	private Long id;
+
 	@ApiModelProperty(value = "Nome do perfil, composto por caminho_método", example = "perfis_get")
 	private String nome;
 
