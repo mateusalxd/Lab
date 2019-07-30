@@ -17,11 +17,11 @@ public class CursoForm {
 	@ApiModelProperty(value = "Nome do curso", example = "Ciência da Computação")
 	private String nome;
 
-	public final String getNome() {
+	public String getNome() {
 		return this.nome;
 	}
 
-	public final void setNome(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 

@@ -37,35 +37,35 @@ public class AtualizacaoProfessorForm {
 	@ApiModelProperty(value = "Salário do professor", example = "1000.00")
 	private BigDecimal salario;
 
-	public final String getNome() {
+	public String getNome() {
 		return this.nome;
 	}
 
-	public final void setNome(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-	public final LocalDate getDataNascimento() {
+	public LocalDate getDataNascimento() {
 		return this.dataNascimento;
 	}
 
-	public final void setDataNascimento(LocalDate dataNascimento) {
+	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
-	public final String getCargo() {
+	public String getCargo() {
 		return this.cargo;
 	}
 
-	public final void setCargo(String cargo) {
+	public void setCargo(String cargo) {
 		this.cargo = cargo;
 	}
 
-	public final BigDecimal getSalario() {
+	public BigDecimal getSalario() {
 		return this.salario;
 	}
 
-	public final void setSalario(BigDecimal salario) {
+	public void setSalario(BigDecimal salario) {
 		this.salario = salario;
 	}
 

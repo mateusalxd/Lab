@@ -11,11 +11,11 @@ public class ErroFormDTO {
 		this.mensagem = mensagem;
 	}
 
-	public final String getCampo() {
+	public String getCampo() {
 		return this.campo;
 	}
 
-	public final String getMensagem() {
+	public String getMensagem() {
 		return this.mensagem;
 	}
 

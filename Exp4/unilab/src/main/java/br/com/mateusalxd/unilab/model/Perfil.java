@@ -20,19 +20,19 @@ public class Perfil implements GrantedAuthority {
 	@Column(length = 200, unique = true, nullable = false)
 	private String nome;
 
-	public final Long getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public final void setId(Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public final String getNome() {
+	public String getNome() {
 		return this.nome;
 	}
 
-	public final void setNome(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 

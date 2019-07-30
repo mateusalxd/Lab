@@ -38,23 +38,23 @@ public class ProfessorDTO {
 		this.salario = professor.getSalario();
 	}
 
-	public final String getNome() {
+	public String getNome() {
 		return this.nome;
 	}
 
-	public final LocalDate getDataNascimento() {
+	public LocalDate getDataNascimento() {
 		return this.dataNascimento;
 	}
 
-	public final String getCodigo() {
+	public String getCodigo() {
 		return this.codigo;
 	}
 
-	public final String getCargo() {
+	public String getCargo() {
 		return this.cargo;
 	}
 
-	public final BigDecimal getSalario() {
+	public BigDecimal getSalario() {
 		return this.salario;
 	}
 

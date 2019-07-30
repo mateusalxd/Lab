@@ -21,11 +21,11 @@ public class CursoDTO {
 		this.nome = curso.getNome();
 	}
 
-	public final Long getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public final String getNome() {
+	public String getNome() {
 		return this.nome;
 	}
 

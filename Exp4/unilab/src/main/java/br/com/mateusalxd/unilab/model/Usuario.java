@@ -100,11 +100,11 @@ public class Usuario implements UserDetails {
 		this.dataInativacao = dataInativacao;
 	}
 
-	public final List<Perfil> getPerfis() {
+	public List<Perfil> getPerfis() {
 		return this.perfis;
 	}
 
-	public final void setPerfis(List<Perfil> perfis) {
+	public void setPerfis(List<Perfil> perfis) {
 		this.perfis = perfis;
 	}
 
