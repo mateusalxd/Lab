@@ -21,3 +21,11 @@ insert into professor (data_nascimento, nome, cargo, codigo, salario) values ('2
 insert into disciplina (nome) values('Calculo I');
 insert into disciplina (nome) values('Calculo II');
 insert into disciplina (nome) values('Ética');
+
+insert into usuario (ativo, bloqueado, data_cadastro, nome, senha) values (1, 0, NOW(), 'A0000001', '$2a$10$HYL3W7b1W2BfbW3ZEJrTke.Fe4GbwoZMqCT.c2C.luutbTIJyryc2');
+insert into usuario (ativo, bloqueado, data_cadastro, nome, senha) values (1, 0, NOW(), 'A0000002', '$2a$10$HYL3W7b1W2BfbW3ZEJrTke.Fe4GbwoZMqCT.c2C.luutbTIJyryc2');
+insert into usuario (ativo, bloqueado, data_cadastro, nome, senha) values (1, 0, NOW(), 'A0000003', '$2a$10$HYL3W7b1W2BfbW3ZEJrTke.Fe4GbwoZMqCT.c2C.luutbTIJyryc2');
+
+insert into usuario_perfis (usuario_id, perfis_id) values (1, 2);
+insert into usuario_perfis (usuario_id, perfis_id) values (2, 2);
+insert into usuario_perfis (usuario_id, perfis_id) values (3, 2);
