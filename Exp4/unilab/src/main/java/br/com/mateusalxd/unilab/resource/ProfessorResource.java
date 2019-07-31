@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,7 +21,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import br.com.mateusalxd.unilab.model.Aluno;
 import br.com.mateusalxd.unilab.model.Professor;
+import br.com.mateusalxd.unilab.repository.AlunoRepository;
 import br.com.mateusalxd.unilab.repository.ProfessorRepository;
 import br.com.mateusalxd.unilab.resource.dto.ProfessorDTO;
 import br.com.mateusalxd.unilab.resource.form.AtualizacaoProfessorForm;
@@ -38,6 +41,9 @@ public class ProfessorResource {
 
 	@Autowired
 	private ProfessorRepository professorRepository;
+	
+	@Autowired
+	private AlunoRepository alunoRepository;
 
 	@GetMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ApiOperation(value = "Devolve uma lista de Professores")
@@ -62,6 +68,11 @@ public class ProfessorResource {
 	public ResponseEntity<ProfessorDTO> cadastrar(
 			@RequestBody @Valid @ApiParam(value = "Dados do professor") ProfessorForm formulario,
 			@ApiParam(hidden = true) UriComponentsBuilder uriComponentsBuilder) {
+		Optional<Aluno> optional = alunoRepository.findByMatricula(formulario.getCodigo());
+		if (optional.isPresent()) {
+			throw new DataIntegrityViolationException("O código já foi utilizado como matrícula de Aluno");
+		}
+		
 		Professor professor = professorRepository.save(formulario.converter());
 
 		URI uri = uriComponentsBuilder.path(ProfessorResource.RECURSO_BASE + "/{id}").buildAndExpand(professor.getId())

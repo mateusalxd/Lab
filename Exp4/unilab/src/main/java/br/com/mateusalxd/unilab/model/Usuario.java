@@ -12,8 +12,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Usuario implements UserDetails {
@@ -37,6 +41,8 @@ public class Usuario implements UserDetails {
 	private Boolean bloqueado;
 
 	@Column(nullable = false)
+	@DateTimeFormat(iso = ISO.DATE_TIME, pattern = "dd/MM/yyyy HH:mm:ss")
+	@JsonFormat(pattern =  "dd/MM/yyyy HH:mm:ss")
 	private LocalDateTime dataCadastro;
 
 	private LocalDateTime dataInativacao;

@@ -17,6 +17,13 @@ public class PerfilForm {
 	@ApiModelProperty(value = "Nome do perfil, composto por caminho_método", example = "perfis_get")
 	private String nome;
 
+	public PerfilForm() {
+	}
+
+	public PerfilForm(Perfil perfil) {
+		this.nome = perfil.getNome();
+	}
+
 	public String getNome() {
 		return this.nome;
 	}
