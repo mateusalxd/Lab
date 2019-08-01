@@ -47,13 +47,44 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 			.antMatchers(HttpMethod.POST, "/autenticacao").permitAll()
+			.antMatchers("/**").hasAuthority("*_*")
+			.antMatchers("/actuator/**").hasAuthority("actuator_*")
+			
 			.antMatchers(HttpMethod.DELETE, "/alunos/*").hasAuthority("alunos_delete")
 			.antMatchers(HttpMethod.GET, "/alunos", "/alunos/*").hasAuthority("alunos_get")
 			.antMatchers(HttpMethod.POST, "/alunos").hasAuthority("alunos_post")
 			.antMatchers(HttpMethod.PUT, "/alunos/*").hasAuthority("alunos_put")
+			
+			.antMatchers(HttpMethod.DELETE, "/cursos/*").hasAuthority("cursos_delete")
+			.antMatchers(HttpMethod.GET, "/cursos", "/cursos/*").hasAuthority("cursos_get")
+			.antMatchers(HttpMethod.POST, "/cursos").hasAuthority("cursos_post")
+			.antMatchers(HttpMethod.PUT, "/cursos/*").hasAuthority("cursos_put")
+			
+			.antMatchers(HttpMethod.DELETE, "/disciplinas/*").hasAuthority("disciplinas_delete")
+			.antMatchers(HttpMethod.GET, "/disciplinas", "/disciplinas/*").hasAuthority("disciplinas_get")
+			.antMatchers(HttpMethod.POST, "/disciplinas").hasAuthority("disciplinas_post")
+			.antMatchers(HttpMethod.PUT, "/disciplinas/*").hasAuthority("disciplinas_put")		
+			
+			.antMatchers(HttpMethod.DELETE, "/perfis/*").hasAuthority("perfis_delete")
+			.antMatchers(HttpMethod.GET, "/perfis", "/perfis/*").hasAuthority("perfis_get")
+			.antMatchers(HttpMethod.POST, "/perfis").hasAuthority("perfis_post")
+			.antMatchers(HttpMethod.PUT, "/perfis/*").hasAuthority("perfis_put")				
+			
+			.antMatchers(HttpMethod.DELETE, "/professores/*").hasAuthority("professores_delete")
+			.antMatchers(HttpMethod.GET, "/professores", "/professores/*").hasAuthority("professores_get")
+			.antMatchers(HttpMethod.POST, "/professores").hasAuthority("professores_post")
+			.antMatchers(HttpMethod.PUT, "/professores/*").hasAuthority("professores_put")	
+			
+			.antMatchers(HttpMethod.DELETE, "/usuarios/*").hasAuthority("usuarios_delete")
+			.antMatchers(HttpMethod.GET, "/usuarios", "/usuarios/*").hasAuthority("usuarios_get")
+			.antMatchers(HttpMethod.POST, "/usuarios").hasAuthority("usuarios_post")
+			.antMatchers(HttpMethod.PUT, "/usuarios/*").hasAuthority("usuarios_put")	
+			
 			.anyRequest().denyAll()
 			.and().csrf().disable()
+			
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+			
 			.and().addFilterBefore(new AutenticacaoTokenFilter(tokenService, usuarioRepository), UsernamePasswordAuthenticationFilter.class)
 			;
 		
