@@ -75,7 +75,7 @@ public class ProfessorResource {
 		
 		Professor professor = professorRepository.save(formulario.converter());
 
-		URI uri = uriComponentsBuilder.path(ProfessorResource.RECURSO_BASE + "/{id}").buildAndExpand(professor.getId())
+		URI uri = uriComponentsBuilder.path(ProfessorResource.RECURSO_BASE + "/{codigo}").buildAndExpand(professor.getCodigo())
 				.toUri();
 		return ResponseEntity.created(uri).body(new ProfessorDTO(professor));
 	}

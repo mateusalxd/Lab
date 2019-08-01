@@ -75,7 +75,7 @@ public class AlunoResource {
 
 		Aluno aluno = alunoRepository.save(formulario.converter());
 
-		URI uri = uriComponentsBuilder.path(AlunoResource.RECURSO_BASE + "/{id}").buildAndExpand(aluno.getId()).toUri();
+		URI uri = uriComponentsBuilder.path(AlunoResource.RECURSO_BASE + "/{matricula}").buildAndExpand(aluno.getMatricula()).toUri();
 		return ResponseEntity.created(uri).body(new AlunoDTO(aluno));
 	}
 
