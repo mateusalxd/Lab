@@ -25,6 +25,7 @@ import br.com.mateusalxd.unilab.model.Aluno;
 import br.com.mateusalxd.unilab.model.Professor;
 import br.com.mateusalxd.unilab.repository.AlunoRepository;
 import br.com.mateusalxd.unilab.repository.ProfessorRepository;
+import br.com.mateusalxd.unilab.repository.UsuarioRepository;
 import br.com.mateusalxd.unilab.resource.dto.AlunoDTO;
 import br.com.mateusalxd.unilab.resource.form.AlunoForm;
 import br.com.mateusalxd.unilab.resource.form.AtualizacaoAlunoForm;
@@ -44,6 +45,9 @@ public class AlunoResource {
 
 	@Autowired
 	private ProfessorRepository professorRepository;
+	
+	@Autowired
+	private UsuarioRepository usuarioRepository;
 
 	@GetMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ApiOperation(value = "Devolve uma lista de Alunos")
@@ -85,6 +89,7 @@ public class AlunoResource {
 	public ResponseEntity<?> remover(@PathVariable @ApiParam(value = "Matrícula do aluno") String matricula) {
 		Optional<Aluno> optional = alunoRepository.findByMatricula(matricula);
 		if (optional.isPresent()) {
+			usuarioRepository.delete(optional.get().getUsuario());
 			alunoRepository.delete(optional.get());
 			return ResponseEntity.ok().build();
 		}
