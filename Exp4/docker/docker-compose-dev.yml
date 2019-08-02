@@ -1,0 +1,17 @@
+version: '3'
+services: 
+  api:
+    build:
+      dockerfile: ./serv-java.Dockerfile
+      context: .
+    image: mateusalxd/serv-java
+    container_name: serv-java-dev
+    ports: 
+      - "8080:8080"
+    environment: 
+      LANG: pt_BR.UTF-8
+      LANGUAGE: pt_BR:pt:en
+      JWTS_CHAVE: G0wERGf5hsEkoL60CDOYlmnKLR7M2XFjV3sWhVacYewfhDfUvdTf12lsb15Ro5FO
+      # token com duração de 1 dia (ms)
+      JWTS_DURACAO: 86400000
+    command: sh -c 'java -jar -Dspring.profiles.active=dev /tmp/unilab.jar'

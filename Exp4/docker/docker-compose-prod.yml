@@ -1,0 +1,44 @@
+version: '3'
+services: 
+  api:
+    build:
+      dockerfile: ./serv-java.Dockerfile
+      context: .
+    image: mateusalxd/serv-java
+    container_name: serv-java-prod
+    ports: 
+      - "8080:8080"
+    environment: 
+      LANG: pt_BR.UTF-8
+      LANGUAGE: pt_BR:pt:en
+      DATASOURCE_HOST: db
+      DATASOURCE_PORT: 3306
+      DATASOURCE_DATABASE: unilab
+      DATASOURCE_USERNAME: root
+      DATASOURCE_PASSWORD: KMDVbadfhNh5zA6GFzAH
+      JWTS_CHAVE: G0wERGf5hsEkoL60CDOYlmnKLR7M2XFjV3sWhVacYewfhDfUvdTf12lsb15Ro5FO
+      # token com duração de 1 dia (ms)
+      JWTS_DURACAO: 86400000
+    networks: 
+      - rede-teste
+    depends_on: 
+      - "db"
+    command: sh -c '/tmp/wait-for.sh db:3306 -t 180 -- java -jar -Dspring.profiles.active=prod /tmp/unilab.jar'
+  db:
+    build:
+      dockerfile: ./serv-mysql.Dockerfile
+      context: .    
+    image: mateusalxd/serv-mysql
+    container_name: serv-mysql
+    ports: 
+      - "3306:3306"
+    environment: 
+      LANG: pt_BR.UTF-8
+      LANGUAGE: pt_BR:pt:en
+      MYSQL_ROOT_PASSWORD: KMDVbadfhNh5zA6GFzAH
+      MYSQL_DATABASE: unilab
+    networks: 
+      - rede-teste
+networks: 
+  rede-teste:
+    driver: bridge
