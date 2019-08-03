@@ -52,6 +52,11 @@ ou
 ./limpar.sh prod
 ```
 
+Caso não tenhe o `Docker` instalado, você pode executar o `.jar` direto com o comando (é necessário pelo menos o `Maven`):
+```
+./iniciar-sem-docker.sh
+```
+
 ## Anotações
 
 - [referência](https://stackabuse.com/spring-boot-profiles-for-dev-and-prod-environments/) de uso de *profiles* no `Maven`.
