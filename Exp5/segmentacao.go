@@ -267,6 +267,8 @@ func (k *kmeans) obterIndiceCluster(numero int) int {
 }
 
 func main() {
+	tempoInicial := time.Now()
+
 	var nomeArquivo string
 	var numeroClusters int
 	var mudarSempre bool
@@ -335,4 +337,6 @@ func main() {
 		fmt.Println(erro)
 	}
 
+	tempoFinal := time.Since(tempoInicial)
+	fmt.Printf("Tempo total de execução: %v\n", tempoFinal)
 }
