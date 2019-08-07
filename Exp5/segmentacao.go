@@ -208,7 +208,7 @@ func (k *kmeans) classificar() {
 			}
 		}
 
-		// zera resultados alteriores
+		// zera resultados anteriores
 		for c := 0; c < len(k.clusters); c++ {
 			contador[c].Zerar()
 		}
