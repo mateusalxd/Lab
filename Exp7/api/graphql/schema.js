@@ -43,6 +43,16 @@ const schema = new GraphQLSchema({
                     const pessoa = new Pessoa(args);
                     return pessoa.save();
                 }
+            },
+            removerPessoa: {
+                type: GraphQLID,
+                args: {
+                    id: { type: GraphQLNonNull(GraphQLID) }
+                },
+                resolve: (root, args, context, info) => {
+                    Pessoa.findByIdAndRemove(args.id).exec();
+                    return args.id;
+                }
             }
         }
     })
