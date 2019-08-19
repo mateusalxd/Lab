@@ -9,6 +9,7 @@ API para manutenção de Pessoas.
 - Node.js
 - GraphQL
 - MongoDB
+- React
 
 ## Como testar
 
@@ -18,7 +19,7 @@ Para iniciar o `MongoDB`, através do diretório `docker`, execute:
 docker-compose up
 ```
 
-Feito isso execute os comandos para iniciar o servidor (configurado para [localhost:4000/graphql](http://localhost:4000/graphql):
+Feito isso execute os comandos para iniciar o servidor a partir do diretório `api` (configurado para [localhost:4000/graphql](http://localhost:4000/graphql)):
 
 ```sh
 npm install
@@ -35,6 +36,16 @@ mutation {
     }
 }
 ```
+
+Para remover uma nova Pessoa, execute a `mutation` abaixo:
+
+```graphql
+mutation {
+    removerPessoa(id: "5d5a8fe7479fb91b42dca0fe")
+}
+```
+
+**Observação**: utilize um `id` existente.
 
 Para realizar uma consulta, execute a `query` abaixo:
 
@@ -61,4 +72,17 @@ query {
 
 **Observação**: na consulta por `id`, utilize um `id` recuperado através da primeira `query`.
 
-A documentação das `Queries` e da `Mutation` estão disponíveis no canto superior direito, através do botão `< Docs`.
+A documentação das `Queries` e das `Mutations` estão disponíveis no canto superior direito, através do botão `< Docs`.
+
+Para consumir a API através de uma aplicação em `React`, execute os comandos abaixo no diretório `app` (configurado para [localhost:3000](http://localhost:3000)):
+
+```sh
+npm install
+npm start
+```
+
+Para remover uma pessoa, dê um clique duplo na linha da tabela.
+
+## Anotações
+
+- [ENOSPC: System limit for number of file watchers reached](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers#the-technical-details)

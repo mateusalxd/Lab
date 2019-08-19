@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+mongoose.set('useFindAndModify', false);
 
 mongoose.connect("mongodb://admin:admin@localhost/pessoa?authSource=admin", { useNewUrlParser: true })
     .then(retorno => {
