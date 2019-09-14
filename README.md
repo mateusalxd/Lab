@@ -2,7 +2,7 @@
 
 Abaixo estão as linguagens/tecnologias utilizadas em cada experimento.
 
-## [Experiência 1](Exp1/README.md)
+## [Experiência 1](Exp1)
 
 - API Rest
 - Java
@@ -10,7 +10,7 @@ Abaixo estão as linguagens/tecnologias utilizadas em cada experimento.
 - JUnit
 - Maven
 
-## [Experiência 2](Exp2/README.md)
+## [Experiência 2](Exp2)
 
 - API Rest
 - Java
@@ -18,7 +18,7 @@ Abaixo estão as linguagens/tecnologias utilizadas em cada experimento.
 - Maven
 - Docker
 
-## [Experiência 3](Exp3/README.md)
+## [Experiência 3](Exp3)
 
 - API Rest
 - Java
@@ -28,7 +28,7 @@ Abaixo estão as linguagens/tecnologias utilizadas em cada experimento.
 - MySQL
 - Hibernate
 
-## [Experiência 4](Exp4/README.md)
+## [Experiência 4](Exp4)
 
 - API Rest
 - Java
@@ -41,15 +41,15 @@ Abaixo estão as linguagens/tecnologias utilizadas em cada experimento.
 - Springfox (Swagger)
 - Java JWT
 
-## [Experiência 5](Exp5/README.md)
+## [Experiência 5](Exp5)
 
 - Go
 
-## [Experiência 6](Exp6/README.md)
+## [Experiência 6](Exp6)
 
 - Go
 
-## [Experiência 7](Exp7/README.md)
+## [Experiência 7](Exp7)
 
 - Node.js
 - GraphQL
